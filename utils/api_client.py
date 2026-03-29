@@ -1,133 +1,107 @@
 """
-=============================================================================
-API_CLIENT.PY - API Client Helper Class
-=============================================================================
-This file contains helper functions for making API requests.
-
-What is this file for?
-- Provide reusable functions for common API operations
-- Simplify API calls in test files
-- Handle request/response logging
-
-How to use:
-    from utils.api_client import api_get, api_post, api_put, api_delete
-    
-    # GET request
-    response = api_get(url)
-    
-    # POST request with body
-    response = api_post(url, payload)
-=============================================================================
+API_CLIENT.PY - API Client with Detailed Logging
 """
 
 import requests
-import json
-import logging
+import time
+from typing import Any, Dict, Optional
 from utils.headers import headers
-
-# Create a logger for this module
-logger = logging.getLogger("api_client")
+from utils.logger import api_logger
 
 
-def api_get(url, params=None):
-    """
-    Make a GET request to the API.
+def api_get(url: str, params: Optional[Dict] = None) -> requests.Response:
+    """Make a GET request with detailed logging."""
+    request_id = api_logger.log_request(url=url, method="GET", headers=headers, params=params)
     
-    GET requests are used to retrieve data from the server.
-    They don't modify any data.
-    
-    Args:
-        url (str): The API endpoint URL
-        params (dict): Optional query parameters
+    try:
+        start_time = time.time()
+        response = requests.get(url, headers=headers, params=params)
+        elapsed_time = time.time() - start_time
         
-    Returns:
-        requests.Response: The response object
-        
-    Example:
-        response = api_get("https://api.example.com/users")
-        data = response.json()
-    """
-    logger.info(f"GET Request: {url}")
-    
-    response = requests.get(url, headers=headers, params=params)
-    
-    logger.info(f"Response Status: {response.status_code}")
-    return response
+        api_logger.log_response(
+            request_id=request_id,
+            status_code=response.status_code,
+            headers=dict(response.headers),
+            body=response.json() if response.content else None,
+            elapsed_time=elapsed_time
+        )
+        return response
+    except Exception as e:
+        api_logger.log_error(request_id, e)
+        raise
 
 
-def api_post(url, payload):
-    """
-    Make a POST request to the API.
+def api_post(url: str, payload: Dict) -> requests.Response:
+    """Make a POST request with detailed logging."""
+    request_id = api_logger.log_request(url=url, method="POST", headers=headers, payload=payload)
     
-    POST requests are used to create new resources on the server.
-    The payload contains the data for the new resource.
-    
-    Args:
-        url (str): The API endpoint URL
-        payload (dict): The request body data (will be converted to JSON)
+    try:
+        start_time = time.time()
+        response = requests.post(url, headers=headers, json=payload)
+        elapsed_time = time.time() - start_time
         
-    Returns:
-        requests.Response: The response object
-        
-    Example:
-        payload = {"name": "John", "email": "john@example.com"}
-        response = api_post("https://api.example.com/users", payload)
-    """
-    logger.info(f"POST Request: {url}")
-    logger.info(f"Payload: {json.dumps(payload, indent=2)}")
-    
-    response = requests.post(url, headers=headers, json=payload)
-    
-    logger.info(f"Response Status: {response.status_code}")
-    return response
+        api_logger.log_response(
+            request_id=request_id,
+            status_code=response.status_code,
+            headers=dict(response.headers),
+            body=response.json() if response.content else None,
+            elapsed_time=elapsed_time
+        )
+        return response
+    except Exception as e:
+        api_logger.log_error(request_id, e)
+        raise
 
 
-def api_put(url, payload):
-    """
-    Make a PUT request to the API.
+def api_put(url: str, payload: Dict) -> requests.Response:
+    """Make a PUT request with detailed logging."""
+    request_id = api_logger.log_request(url=url, method="PUT", headers=headers, payload=payload)
     
-    PUT requests are used to update/replace an existing resource.
-    The payload contains the complete updated resource data.
-    
-    Args:
-        url (str): The API endpoint URL
-        payload (dict): The updated resource data
+    try:
+        start_time = time.time()
+        response = requests.put(url, headers=headers, json=payload)
+        elapsed_time = time.time() - start_time
         
-    Returns:
-        requests.Response: The response object
+        try:
+            body = response.json() if response.content else None
+        except:
+            body = response.text if response.content else None
         
-    Example:
-        payload = {"name": "John Updated", "email": "john.updated@example.com"}
-        response = api_put("https://api.example.com/users/john", payload)
-    """
-    logger.info(f"PUT Request: {url}")
-    logger.info(f"Payload: {json.dumps(payload, indent=2)}")
-    
-    response = requests.put(url, headers=headers, json=payload)
-    
-    logger.info(f"Response Status: {response.status_code}")
-    return response
+        api_logger.log_response(
+            request_id=request_id,
+            status_code=response.status_code,
+            headers=dict(response.headers),
+            body=body,
+            elapsed_time=elapsed_time
+        )
+        return response
+    except Exception as e:
+        api_logger.log_error(request_id, e)
+        raise
 
 
-def api_delete(url):
-    """
-    Make a DELETE request to the API.
+def api_delete(url: str) -> requests.Response:
+    """Make a DELETE request with detailed logging."""
+    request_id = api_logger.log_request(url=url, method="DELETE", headers=headers)
     
-    DELETE requests are used to remove a resource from the server.
-    No request body is needed.
-    
-    Args:
-        url (str): The API endpoint URL
+    try:
+        start_time = time.time()
+        response = requests.delete(url, headers=headers)
+        elapsed_time = time.time() - start_time
         
-    Returns:
-        requests.Response: The response object
+        try:
+            body = response.json() if response.content else None
+        except:
+            body = response.text if response.content else None
         
-    Example:
-        response = api_delete("https://api.example.com/users/john")
-    """
-    logger.info(f"DELETE Request: {url}")
-    
-    response = requests.delete(url, headers=headers)
-    
-    logger.info(f"Response Status: {response.status_code}")
-    return response
+        api_logger.log_response(
+            request_id=request_id,
+            status_code=response.status_code,
+            headers=dict(response.headers),
+            body=body,
+            elapsed_time=elapsed_time
+        )
+        return response
+    except Exception as e:
+        api_logger.log_error(request_id, e)
+        raise

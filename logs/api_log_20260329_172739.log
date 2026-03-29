@@ -1,0 +1,585 @@
+================================================================================
+API TEST SESSION STARTED
+Timestamp: 2026-03-29 17:27:39
+Log File: logs\api_log_20260329_172739.log
+================================================================================
+
+
+################################################################################
+############################## TEST START ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172739-001
+================================================================================
+Timestamp: 2026-03-29 17:27:39
+Method:    POST
+URL:       https://petstore.swagger.io/v2/user
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+{
+    "id": 3882,
+    "username": "emilybrown97",
+    "firstName": "Emily",
+    "lastName": "Brown",
+    "email": "emily.brown@yopmail.com",
+    "password": "Pwd8514",
+    "phone": "3969513888",
+    "userStatus": 1
+}
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172739-001
+================================================================================
+Timestamp:     2026-03-29 17:27:41
+Status Code:   200 [SUCCESS]
+Response Time: 1.454s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:41 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "3882"
+}
+
+================================================================================
+
+
+
+################################################################################
+############################## TEST END ##############################
+################################################################################
+
+
+
+################################################################################
+############################## TEST START ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172741-002
+================================================================================
+Timestamp: 2026-03-29 17:27:41
+Method:    GET
+URL:       https://petstore.swagger.io/v2/user/emilybrown97
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+None
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172741-002
+================================================================================
+Timestamp:     2026-03-29 17:27:42
+Status Code:   200 [SUCCESS]
+Response Time: 1.519s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:42 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "id": 3882,
+    "username": "emilybrown97",
+    "firstName": "Emily",
+    "lastName": "Brown",
+    "email": "emily.brown@yopmail.com",
+    "password": "Pwd8514",
+    "phone": "3969513888",
+    "userStatus": 1
+}
+
+================================================================================
+
+
+
+################################################################################
+############################## TEST END ##############################
+################################################################################
+
+
+
+################################################################################
+############################## TEST START ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172742-003
+================================================================================
+Timestamp: 2026-03-29 17:27:42
+Method:    PUT
+URL:       https://petstore.swagger.io/v2/user/emilybrown97
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+{
+    "id": 4440,
+    "username": "sophiajohnson32",
+    "firstName": "Sophia",
+    "lastName": "Johnson",
+    "email": "sophia.johnson@yopmail.com",
+    "password": "Pwd8462",
+    "phone": "5689563892",
+    "userStatus": 1
+}
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172742-003
+================================================================================
+Timestamp:     2026-03-29 17:27:44
+Status Code:   200 [SUCCESS]
+Response Time: 1.706s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:44 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "4440"
+}
+
+================================================================================
+
+
+
+################################################################################
+############################## TEST END ##############################
+################################################################################
+
+
+
+################################################################################
+############################## TEST START ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172744-004
+================================================================================
+Timestamp: 2026-03-29 17:27:44
+Method:    DELETE
+URL:       https://petstore.swagger.io/v2/user/sophiajohnson32
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+None
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172744-004
+================================================================================
+Timestamp:     2026-03-29 17:27:46
+Status Code:   200 [SUCCESS]
+Response Time: 1.498s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:45 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "sophiajohnson32"
+}
+
+================================================================================
+
+
+
+================================================================================
+API TEST SESSION COMPLETED
+================================================================================
+Timestamp:      2026-03-29 17:27:46
+Total Requests: 4
+Log File:       logs\api_log_20260329_172739.log
+================================================================================
+
+
+
+################################################################################
+############################## TEST END ##############################
+################################################################################
+
+
+
+################################################################################
+############################## MULTIPLE USERS TEST ##############################
+################################################################################
+
+
+
+################################################################################
+############################## Creating User 1 ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172746-005
+================================================================================
+Timestamp: 2026-03-29 17:27:46
+Method:    POST
+URL:       https://petstore.swagger.io/v2/user
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+{
+    "id": 5493,
+    "username": "johnjohnson70",
+    "firstName": "John",
+    "lastName": "Johnson",
+    "email": "john.johnson@yopmail.com",
+    "password": "Pwd4514",
+    "phone": "0459075876",
+    "userStatus": 1
+}
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172746-005
+================================================================================
+Timestamp:     2026-03-29 17:27:47
+Status Code:   200 [SUCCESS]
+Response Time: 1.458s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:47 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "5493"
+}
+
+================================================================================
+
+
+
+################################################################################
+############################## Creating User 2 ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172747-006
+================================================================================
+Timestamp: 2026-03-29 17:27:47
+Method:    POST
+URL:       https://petstore.swagger.io/v2/user
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+{
+    "id": 6258,
+    "username": "emilydavis80",
+    "firstName": "Emily",
+    "lastName": "Davis",
+    "email": "emily.davis@yopmail.com",
+    "password": "Pwd9498",
+    "phone": "2208334007",
+    "userStatus": 1
+}
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172747-006
+================================================================================
+Timestamp:     2026-03-29 17:27:49
+Status Code:   200 [SUCCESS]
+Response Time: 1.503s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:48 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "6258"
+}
+
+================================================================================
+
+
+
+################################################################################
+############################## Creating User 3 ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172749-007
+================================================================================
+Timestamp: 2026-03-29 17:27:49
+Method:    POST
+URL:       https://petstore.swagger.io/v2/user
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+{
+    "id": 2147,
+    "username": "emilywilson31",
+    "firstName": "Emily",
+    "lastName": "Wilson",
+    "email": "emily.wilson@yopmail.com",
+    "password": "Pwd4084",
+    "phone": "0400323126",
+    "userStatus": 1
+}
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172749-007
+================================================================================
+Timestamp:     2026-03-29 17:27:50
+Status Code:   200 [SUCCESS]
+Response Time: 1.449s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:50 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "2147"
+}
+
+================================================================================
+
+
+
+################################################################################
+############################## Deleting User: johnjohnson70 ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172750-008
+================================================================================
+Timestamp: 2026-03-29 17:27:50
+Method:    DELETE
+URL:       https://petstore.swagger.io/v2/user/johnjohnson70
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+None
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172750-008
+================================================================================
+Timestamp:     2026-03-29 17:27:51
+Status Code:   200 [SUCCESS]
+Response Time: 1.446s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:51 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "johnjohnson70"
+}
+
+================================================================================
+
+
+
+################################################################################
+############################## Deleting User: emilydavis80 ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172751-009
+================================================================================
+Timestamp: 2026-03-29 17:27:51
+Method:    DELETE
+URL:       https://petstore.swagger.io/v2/user/emilydavis80
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+None
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172751-009
+================================================================================
+Timestamp:     2026-03-29 17:27:53
+Status Code:   200 [SUCCESS]
+Response Time: 1.658s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:53 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "emilydavis80"
+}
+
+================================================================================
+
+
+
+################################################################################
+############################## Deleting User: emilywilson31 ##############################
+################################################################################
+
+
+================================================================================
+>>> REQUEST: REQ-172753-010
+================================================================================
+Timestamp: 2026-03-29 17:27:53
+Method:    DELETE
+URL:       https://petstore.swagger.io/v2/user/emilywilson31
+
+HEADERS:
+  Content-Type: application/json
+
+PAYLOAD:
+None
+
+================================================================================
+
+
+<<< RESPONSE: REQ-172753-010
+================================================================================
+Timestamp:     2026-03-29 17:27:54
+Status Code:   200 [SUCCESS]
+Response Time: 1.396s
+
+RESPONSE HEADERS:
+  Date: Sun, 29 Mar 2026 11:57:54 GMT
+  Content-Type: application/json
+  Transfer-Encoding: chunked
+  Connection: keep-alive
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, POST, DELETE, PUT
+  Access-Control-Allow-Headers: Content-Type, api_key, Authorization
+  Server: Jetty(9.2.9.v20150224)
+
+RESPONSE BODY:
+{
+    "code": 200,
+    "type": "unknown",
+    "message": "emilywilson31"
+}
+
+================================================================================
+
+
+
+================================================================================
+API TEST SESSION COMPLETED
+================================================================================
+Timestamp:      2026-03-29 17:27:54
+Total Requests: 10
+Log File:       logs\api_log_20260329_172739.log
+================================================================================
+
